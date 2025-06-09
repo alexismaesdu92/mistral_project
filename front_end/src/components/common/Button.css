@@ -1,0 +1,121 @@
+/* Styles de base pour tous les boutons */
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-family: var(--font-family-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border: 1.5px solid transparent;
+}
+
+.custom-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Types de boutons */
+.button-primary {
+  background-color: var(--mistral-orange);
+  color: var(--text-inverse);
+  border-color: var(--mistral-orange);
+}
+
+.button-primary:hover:not(:disabled) {
+  background-color: var(--mistral-orange-hover);
+  border-color: var(--mistral-orange-hover);
+}
+
+.button-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-color: var(--border-light);
+}
+
+.button-secondary:hover:not(:disabled) {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-medium);
+}
+
+.button-tertiary {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+
+.button-tertiary:hover:not(:disabled) {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.button-rag {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-color: var(--border-light);
+}
+
+.button-rag:hover:not(:disabled) {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-medium);
+}
+
+.button-rag.button-active {
+  background-color: var(--mistral-orange-light);
+  color: var(--mistral-orange);
+  border-color: var(--mistral-orange);
+}
+
+.button-rag.button-active:hover:not(:disabled) {
+  background-color: var(--mistral-orange-light);
+  border-color: var(--mistral-orange-hover);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* Tailles de boutons */
+.button-small {
+  min-width: 3rem;
+  height: 2.25rem;
+  font-size: 0.75rem;
+  padding: 0 0.75rem;
+}
+
+.button-medium {
+  min-width: 4rem;
+  height: 2.75rem;
+  font-size: 0.875rem;
+  padding: 0 1rem;
+}
+
+.button-large {
+  min-width: 5rem;
+  height: 3.25rem;
+  font-size: 1rem;
+  padding: 0 1.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .button-small {
+    min-width: 2.5rem;
+    height: 2rem;
+    font-size: 0.7rem;
+    padding: 0 0.5rem;
+  }
+
+  .button-medium {
+    min-width: 3.5rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
+    padding: 0 0.75rem;
+  }
+
+  .button-large {
+    min-width: 4.5rem;
+    height: 3rem;
+    font-size: 0.9rem;
+    padding: 0 1.25rem;
+  }
+}

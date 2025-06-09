@@ -1,0 +1,105 @@
+/* Layout principal de l'application - Style Mistral */
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  font-family: var(--font-family-sans);
+}
+
+/* Header avec style Mistral */
+.App-header {
+  background-color: var(--mistral-black);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-inverse);
+  text-align: center;
+  letter-spacing: -0.025em;
+}
+
+/* Zone principale */
+.App-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+/* Conteneur de chat avec design Mistral */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: var(--bg-primary);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  border-left: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+}
+
+/* Messages d'erreur avec style Mistral */
+.error-message {
+  background-color: #fef2f2;
+  color: #dc2626;
+  padding: 0.75rem 1rem;
+  margin: 1rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  border: 1px solid #fecaca;
+  font-weight: 500;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Animation pour les messages d'erreur */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .App-header h1 {
+    font-size: 1.25rem;
+  }
+
+  .chat-container {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+
+  .error-message {
+    margin: 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header h1 {
+    font-size: 1.125rem;
+  }
+}
