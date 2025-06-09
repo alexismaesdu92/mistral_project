@@ -1,0 +1,98 @@
+# ========================================
+# Docker Compose pour Mistral Chatbot
+# ========================================
+# 
+# Ce fichier orchestre les services :
+# - Backend FastAPI (Python)
+# - Frontend React (nginx)
+# - Volumes pour la persistance des données
+
+services:
+  # ========================================
+  # SERVICE BACKEND (FastAPI)
+  # ========================================
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: mistral-backend
+    restart: unless-stopped
+    
+    # Configuration des ports
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    
+    # Variables d'environnement
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - MISTRAL_API_KEY=${MISTRAL_API_KEY}
+      - MISTRAL_MODEL=${MISTRAL_MODEL:-mistral-medium}
+      - VECTOR_DB_PATH=${VECTOR_DB_PATH:-/app/data/mistral_doc}
+      - DOCUMENTS_PATH=${DOCUMENTS_PATH:-/app/data/doc}
+      - COLLECTION_NAME=${COLLECTION_NAME:-mistral_docs}
+    
+    # Volumes pour la persistance des données
+    volumes:
+      - ./data:/app/data
+      - backend_logs:/app/logs
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Réseau
+    networks:
+      - mistral-network
+
+  # ========================================
+  # SERVICE FRONTEND (React + nginx)
+  # ========================================
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: mistral-frontend
+    restart: unless-stopped
+    
+    # Configuration des ports
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    
+    # Dépendance du backend
+    depends_on:
+      backend:
+        condition: service_healthy
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    # Réseau
+    networks:
+      - mistral-network
+
+# ========================================
+# VOLUMES PERSISTANTS
+# ========================================
+volumes:
+  # Logs du backend
+  backend_logs:
+    driver: local
+    name: mistral_backend_logs
+
+# ========================================
+# RÉSEAUX
+# ========================================
+networks:
+  mistral-network:
+    driver: bridge

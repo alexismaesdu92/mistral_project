@@ -27,8 +27,8 @@ const MessageList: React.FC<MessageListProps> = ({ messages}) => {
                 <div className = "empty-state">
                     <div className = "empty-state-content">
                         <div className = "empty-state-icon">💬</div>
-                        <h3>Start Conversation</h3>
-                        <p>Ask me anything to get started</p>
+                        <h3>Stat Conversation</h3>
+                        <p>Ask a question</p>
                     </div>
                 </div>
             ): (

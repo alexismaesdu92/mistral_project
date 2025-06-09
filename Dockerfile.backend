@@ -1,0 +1,63 @@
+# ========================================
+# Dockerfile pour le backend Mistral Chatbot
+# ========================================
+# 
+# Ce Dockerfile crée une image optimisée pour le backend Python/FastAPI
+# avec toutes les dépendances nécessaires pour ChromaDB et Mistral AI
+
+# Utiliser Python 3.11 slim pour une image plus légère
+FROM python:3.11-slim
+
+# Métadonnées de l'image
+LABEL maintainer="Alexis Maes <alexismaes1@gmail.com>"
+LABEL description="Backend FastAPI pour Mistral Chatbot"
+LABEL version="0.1.0"
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Variables d'environnement pour optimiser Python dans Docker
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PIP_NO_CACHE_DIR=1
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Installer les dépendances système nécessaires pour ChromaDB et autres
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    git \
+    sqlite3 \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Mettre à jour pip
+RUN pip install --upgrade pip
+
+# Copier le fichier requirements.txt pour installer les dépendances
+COPY requirements.txt ./
+
+# Installer les dépendances Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copier le code source du backend
+COPY back_end/ ./back_end/
+
+# Créer les répertoires pour les données et logs
+RUN mkdir -p data/mistral_doc data/doc logs
+
+# Créer un utilisateur non-root pour la sécurité
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN chown -R appuser:appuser /app
+USER appuser
+
+# Exposer le port du backend
+EXPOSE 8000
+
+# Health check pour vérifier que l'API fonctionne
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:8000/ || exit 1
+
+# Commande de démarrage
+CMD ["python", "-m", "uvicorn", "back_end.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

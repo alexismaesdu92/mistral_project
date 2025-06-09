@@ -1,77 +1,157 @@
-/* Liste des messages - Style Mistral */
+/* ========================================
+   LISTE DES MESSAGES - STYLE MISTRAL AI
+   ======================================== */
+
 .message-list {
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 2rem;
   overflow-y: auto;
   flex: 1;
-  min-height: 400px;
-  background-color: var(--bg-primary);
-  gap: 1.5rem;
+  min-height: 500px;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  gap: 2rem;
+  position: relative;
 }
 
-/* État vide avec style Mistral */
+/* === ÉTAT VIDE MISTRAL === */
 .empty-state {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  min-height: 400px;
+  min-height: 500px;
+  animation: fadeInMistral 0.6s ease-out;
 }
 
 .empty-state-content {
   text-align: center;
-  padding: 3rem 2rem;
-  max-width: 500px;
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-light);
+  padding: 4rem 3rem;
+  max-width: 600px;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-accent) 100%);
+  border-radius: var(--radius-2xl);
+  border: 2px solid var(--border-light);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-state-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mistral-orange) 0%, var(--mistral-orange-light) 100%);
 }
 
 .empty-state-icon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.6;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  background: linear-gradient(135deg, var(--mistral-orange) 0%, var(--mistral-orange-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .empty-state h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
   color: var(--text-primary);
   letter-spacing: -0.025em;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .empty-state p {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--text-secondary);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* Barre de défilement personnalisée */
+/* === ANIMATIONS MISTRAL === */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInMistral {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === BARRE DE DÉFILEMENT MISTRAL === */
 .message-list::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .message-list::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: var(--radius-sm);
 }
 
 .message-list::-webkit-scrollbar-thumb {
-  background: var(--border-medium);
-  border-radius: 3px;
+  background: linear-gradient(135deg, var(--border-medium) 0%, var(--mistral-gray-light) 100%);
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
 }
 
 .message-list::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: linear-gradient(135deg, var(--mistral-orange) 0%, var(--mistral-orange-light) 100%);
 }
 
-/* Responsive design */
+/* === RESPONSIVE DESIGN MISTRAL === */
 @media (max-width: 768px) {
+  .message-list {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .empty-state-content {
+    padding: 3rem 2rem;
+    border-radius: var(--radius-xl);
+  }
+
+  .empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .empty-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .empty-state p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
   .message-list {
     padding: 1.5rem 1rem;
     gap: 1.25rem;
+    min-height: 400px;
   }
 
   .empty-state-content {
@@ -90,18 +170,6 @@
   }
 
   .empty-state p {
-    font-size: 0.875rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .message-list {
-    padding: 1rem 0.75rem;
-    gap: 1rem;
-  }
-
-  .empty-state-content {
-    padding: 1.5rem 1rem;
-    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
   }
 }

@@ -1,51 +1,77 @@
-/* Variables CSS inspirées de Mistral AI */
+/* ========================================
+   PALETTE DE COULEURS MISTRAL AI
+   ======================================== */
 :root {
-  /* Couleurs principales */
-  --mistral-black: #0a0a0a;
-  --mistral-dark-gray: #1a1a1a;
-  --mistral-gray: #2a2a2a;
-  --mistral-light-gray: #f5f5f5;
+  /* === COULEURS PRINCIPALES MISTRAL === */
+  --mistral-black: #000000;
+  --mistral-dark: #0f0f0f;
+  --mistral-charcoal: #1a1a1a;
+  --mistral-gray-dark: #2d2d2d;
+  --mistral-gray: #404040;
+  --mistral-gray-light: #6b7280;
+  --mistral-gray-lighter: #9ca3af;
   --mistral-white: #ffffff;
-  --mistral-orange: #ff6b35;
-  --mistral-orange-hover: #e55a2b;
-  --mistral-orange-light: #fff5f2;
+  --mistral-off-white: #fafafa;
 
-  /* Couleurs de texte */
-  --text-primary: #0a0a0a;
+  /* === COULEURS D'ACCENT MISTRAL === */
+  --mistral-orange: #ff4500;
+  --mistral-orange-hover: #e63e00;
+  --mistral-orange-light: #ff6b35;
+  --mistral-orange-lighter: #fff4f0;
+  --mistral-red: #dc2626;
+  --mistral-red-light: #fef2f2;
+
+  /* === COULEURS DE TEXTE === */
+  --text-primary: #000000;
   --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
   --text-inverse: #ffffff;
+  --text-accent: #ff4500;
+  --text-muted: #404040;
 
-  /* Couleurs de fond */
+  /* === COULEURS DE FOND === */
   --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
-  --bg-code: #1e1e1e;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f5f5f5;
+  --bg-dark: #000000;
+  --bg-dark-secondary: #0f0f0f;
+  --bg-dark-tertiary: #1a1a1a;
+  --bg-code: #0f0f0f;
+  --bg-accent: #fff4f0;
 
-  /* Bordures */
+  /* === BORDURES === */
   --border-light: #e5e7eb;
   --border-medium: #d1d5db;
+  --border-dark: #374151;
+  --border-accent: #ff4500;
 
-  /* Ombres */
+  /* === OMBRES MISTRAL === */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-accent: 0 0 0 3px rgba(255, 69, 0, 0.1);
 
-  /* Rayons de bordure */
-  --radius-sm: 4px;
+  /* === RAYONS DE BORDURE === */
+  --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
+  --radius-2xl: 24px;
 
-  /* Typographie */
-  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+  /* === TYPOGRAPHIE MISTRAL === */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  --font-family-display: 'Inter', system-ui, sans-serif;
 }
 
 /* Import des polices Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* Reset et styles de base */
+/* ========================================
+   STYLES DE BASE MISTRAL
+   ======================================== */
 * {
   box-sizing: border-box;
 }
@@ -75,6 +101,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.3;
   margin: 0;
+  color: var(--text-primary);
 }
 
 p {
@@ -83,7 +110,7 @@ p {
 
 /* Styles pour les liens */
 a {
-  color: var(--mistral-orange);
+  color: var(--text-accent);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -92,7 +119,7 @@ a:hover {
   color: var(--mistral-orange-hover);
 }
 
-/* Scrollbar personnalisée */
+/* Scrollbar personnalisée style Mistral */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

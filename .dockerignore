@@ -1,0 +1,101 @@
+# ========================================
+# .dockerignore pour Mistral Chatbot
+# ========================================
+# 
+# Ce fichier exclut les fichiers et dossiers inutiles
+# lors de la construction des images Docker
+
+# ========================================
+# ENVIRONNEMENTS VIRTUELS PYTHON
+# ========================================
+.venv/
+venv/
+env/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ========================================
+# NODE.JS (pour éviter de copier dans le backend)
+# ========================================
+front_end/node_modules/
+front_end/build/
+front_end/.env.local
+front_end/.env.development.local
+front_end/.env.test.local
+front_end/.env.production.local
+front_end/npm-debug.log*
+front_end/yarn-debug.log*
+front_end/yarn-error.log*
+
+# ========================================
+# FICHIERS DE LOGS
+# ========================================
+*.log
+logs/
+backend.log
+frontend.log
+
+# ========================================
+# FICHIERS DE DÉVELOPPEMENT
+# ========================================
+.git/
+.gitignore
+README.md
+DOCKER_README.md
+DEPLOYMENT.md
+
+# ========================================
+# IDE ET ÉDITEURS
+# ========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ========================================
+# FICHIERS TEMPORAIRES
+# ========================================
+*.tmp
+*.temp
+.cache/
+
+# ========================================
+# DOCKER
+# ========================================
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+docker-start.sh
+docker-stop.sh
+check-docker.sh
+
+# ========================================
+# DISTRIBUTION ET BUILD
+# ========================================
+dist/
+build/
+*.egg-info/
+
+# ========================================
+# DONNÉES LOCALES (optionnel)
+# ========================================
+# Décommentez si vous ne voulez pas inclure les données dans l'image
+# data/
+
+# ========================================
+# AUTRES
+# ========================================
+.coverage
+.nyc_output
+coverage/
+.sass-cache/

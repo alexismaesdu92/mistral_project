@@ -1,22 +1,32 @@
+/* ========================================
+   TOGGLE SWITCH - STYLE MISTRAL AI
+   ======================================== */
+
 .toggle-switch-container {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   user-select: none;
 }
 
 .toggle-switch-label {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
+.toggle-switch-label:hover {
+  color: var(--text-primary);
+}
+
+/* === SWITCH MISTRAL === */
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 3.5rem;
-  height: 1.75rem;
+  width: 4rem;
+  height: 2rem;
   cursor: pointer;
 }
 
@@ -33,57 +43,97 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--bg-tertiary);
-  border: 1.5px solid var(--border-light);
-  transition: all 0.2s ease-in-out;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-light);
+  transition: all 0.3s ease-in-out;
   border-radius: 2rem;
   display: flex;
   align-items: center;
   padding: 0 0.25rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .toggle-switch-thumb {
   position: absolute;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1.5rem;
+  width: 1.5rem;
   left: 0.25rem;
   bottom: 0.25rem;
-  background-color: white;
-  transition: all 0.2s ease-in-out;
+  background: linear-gradient(135deg, var(--mistral-white) 0%, var(--bg-secondary) 100%);
+  transition: all 0.3s ease-in-out;
   border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .toggle-switch-text {
   color: var(--text-secondary);
-  font-size: 0.625rem;
-  font-weight: 600;
+  font-size: 0.6875rem;
+  font-weight: 700;
   position: absolute;
-  right: 0.5rem;
-  transition: all 0.2s ease-in-out;
+  right: 0.625rem;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* État ON */
+/* === ÉTAT ON MISTRAL === */
 .toggle-on .toggle-switch-track {
-  background-color: rgba(0, 200, 83, 0.2);
-  border-color: #00c853;
+  background: linear-gradient(135deg, var(--mistral-orange-lighter) 0%, var(--bg-accent) 100%);
+  border-color: var(--mistral-orange);
+  box-shadow: var(--shadow-accent);
 }
 
 .toggle-on .toggle-switch-thumb {
-  transform: translateX(1.75rem);
-  background-color: #00c853;
+  transform: translateX(2rem);
+  background: linear-gradient(135deg, var(--mistral-orange) 0%, var(--mistral-orange-light) 100%);
+  box-shadow: var(--shadow-lg);
 }
 
 .toggle-on .toggle-switch-text {
-  color: #00c853;
+  color: var(--mistral-orange);
   right: auto;
-  left: 0.5rem;
+  left: 0.625rem;
 }
 
-/* État désactivé */
+/* === ÉTAT DÉSACTIVÉ MISTRAL === */
 .toggle-disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
+}
+
+.toggle-disabled .toggle-switch-track {
+  background: var(--bg-tertiary);
+  border-color: var(--border-medium);
+}
+
+.toggle-disabled .toggle-switch-thumb {
+  background: var(--border-medium);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .toggle-switch {
+    width: 3.5rem;
+    height: 1.75rem;
+  }
+
+  .toggle-switch-thumb {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  .toggle-on .toggle-switch-thumb {
+    transform: translateX(1.75rem);
+  }
+
+  .toggle-switch-text {
+    font-size: 0.625rem;
+    right: 0.5rem;
+  }
+
+  .toggle-on .toggle-switch-text {
+    left: 0.5rem;
+  }
 }
 
 .toggle-disabled .toggle-switch-track {
