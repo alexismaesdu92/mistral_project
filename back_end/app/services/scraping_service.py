@@ -1,6 +1,6 @@
 """
 Récupération intégrale de https://docs.mistral.ai/ -> markdown structurés
-
+Inserer une autre Base URL pour une autre source de documentation
 """
 
 import argparse, asyncio, hashlib, csv, re, sys, os, urllib.parse as ulib
@@ -45,7 +45,6 @@ def html_to_markdown(html: str) -> str:
         strip=["script", "style", "header", "footer", "nav", "aside"],
         escape_asterisks=False,
     )
-    # Nettoyages mineurs
     md_text = re.sub(r"\n{3,}", "\n\n", md_text).strip() + "\n"
     return md_text
 
@@ -71,7 +70,7 @@ def build_path(url: str, outdir: Path) -> Path:
     fname = custom_slugify(path, separator="/", lowercase=False) + ".md"
     return outdir / u.netloc / fname
 
-# -------------------- scrapper --------------------
+
 
 class DocScraper:
     def __init__(self, out: Path, concurrency: int = 10):
@@ -141,7 +140,7 @@ class DocScraper:
             for row in self.manifest_rows:
                 w.writerow(row)
 
-# -------------------- exécution CLI --------------------
+
 
 def main():
     out_dir = Path("data/scraping_test")
@@ -161,7 +160,7 @@ def main():
         except Exception as e:
             print(f"Erreur pendant la finalisation: {e}")
 
-    print(f"\n✅ Scraping terminé. Fichiers dans : {out_dir}")
+    print(f"\n Scraping terminé. Fichiers dans : {out_dir}")
 
 if __name__ == "__main__":
     main()

@@ -5,7 +5,7 @@ import sys
 import os
 from pathlib import Path
 
-from services.document_indexer import DocumentIndexingService
+from app.services.document_indexer import DocumentIndexingService
 
 
 if __name__ == "__main__":

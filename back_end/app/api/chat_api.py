@@ -4,6 +4,7 @@ from typing import List, Dict, Any, Optional
 import asyncio
 
 from services.mistral_service import MistralService
+
 router = APIRouter(prefix="/chat", tags=["Chat"])
 
 class ChatMessage(BaseModel):

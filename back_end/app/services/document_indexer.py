@@ -9,8 +9,8 @@ from typing import List, Dict, Any, Optional
 from tqdm import tqdm
 import hashlib
 
-from services.vector_service import VectorService
-from services.text_chunker import MarkdownChunker, TextChunk, DocumentIndexer
+from app.services.vector_service import VectorService
+from app.services.text_chunker import MarkdownChunker, TextChunk, DocumentIndexer
 
 
 class DocumentIndexingService:
