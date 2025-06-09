@@ -21,8 +21,8 @@ WORKDIR /app
 # Copier les fichiers de configuration npm
 COPY front_end/package*.json ./
 
-# Installer les dépendances (utilise npm install au lieu de npm ci)
-RUN npm install --production --silent
+# Installer les dépendances (utilise le cache Docker si package.json n'a pas changé)
+RUN npm ci --only=production --silent
 
 # Copier le code source
 COPY front_end/ ./
@@ -64,7 +64,7 @@ EXPOSE 3000
 
 # Health check pour vérifier que nginx fonctionne
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost:3000/ || exit 1
+    CMD curl -f http://localhost:3000/health || exit 1
 
 # Utiliser l'utilisateur non-root
 USER nginx

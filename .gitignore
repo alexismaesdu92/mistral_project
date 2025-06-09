@@ -14,7 +14,7 @@ __pycache__/
 *.log
 *.txt
 !requirements.txt
-*.json
+!package*.json
 
 
 # Data directories
@@ -46,3 +46,8 @@ front_end/coverage/
 # OS specific files
 .DS_Store
 Thumbs.db
+
+validate-setup.sh
+LICENSE
+DEPLOYMENT_FIXES.md
+test-git-clone.sh
