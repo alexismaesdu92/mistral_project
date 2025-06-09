@@ -17,6 +17,7 @@ import tldextract
 
 BASE_URL = "https://docs.mistral.ai/"
 
+
 HEADERS = {
     "User-Agent": "mistral-doc-scraper/0.1 (+https://github.com/you)",
     "Accept": "text/html,application/xhtml+xml"

@@ -10,7 +10,7 @@ interface ChatInputProps {
 
 const ChatInput: React.FC<ChatInputProps> = ({onSendMessage, isLoading = false}) => {
     const [message, setMessage] = useState('');
-    const [ragEnabled, setRagEnabled] = useState(true);
+    const [ragEnabled, setRagEnabled] = useState(false);
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();

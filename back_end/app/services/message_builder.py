@@ -49,7 +49,7 @@ class MessageBuilder:
     def __init__(self, 
                  system_prompt: Optional[str] = None, 
                  user_template:Optional[str] = None,
-                 enable_rag: bool = True):
+                 enable_rag: bool = False):
         self.system_prompt = system_prompt or SYSTEM_PROMPT
         self.user_template = user_template or USER_TEMPLATE
         self.enable_rag = enable_rag

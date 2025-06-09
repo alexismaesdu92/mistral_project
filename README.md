@@ -118,27 +118,5 @@ cat .env | grep MISTRAL_API_KEY
 
 - [🚀 Démarrage rapide](QUICK_START.md)
 - [🐳 Guide Docker](DOCKER_README.md)
-- [🚀 Déploiement](DEPLOYMENT.md)
 - [🎨 Thème Mistral](THEME_MISTRAL.md)
 
-## 🤝 Contribution
-
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/nouvelle-fonctionnalite`)
-3. Commit (`git commit -am 'Ajouter nouvelle fonctionnalité'`)
-4. Push (`git push origin feature/nouvelle-fonctionnalite`)
-5. Créer une Pull Request
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-## 🆘 Support
-
-- 📖 [Documentation complète](DOCKER_README.md)
-- 🐛 [Signaler un bug](https://github.com/votre-repo/issues)
-- 💬 [Discussions](https://github.com/votre-repo/discussions)
-
----
-
-**Développé avec ❤️ pour la communauté Mistral AI**
