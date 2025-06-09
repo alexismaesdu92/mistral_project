@@ -1,0 +1,46 @@
+# Python virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.py[cod]
+*$py.class
+
+# Logs and temporary files
+*.log
+*.txt
+*.json
+
+# Data directories
+data/
+
+# Front-end dependencies
+node_modules/
+front_end/node_modules/
+
+# Front-end build artifacts
+front_end/build/
+front_end/dist/
+front_end/.cache/
+front_end/coverage/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
